@@ -61,3 +61,67 @@
     <script src="script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Grocery Checklist</h1>
+
+        <div class="store" id="trader-joes">
+            <h2>Trader Joe’s</h2>
+            <ul>
+                <li><label><input type="checkbox" value="Yogurts"> Yogurts</label></li>
+                <li><label><input type="checkbox" value="Turkey bacon"> Turkey bacon</label></li>
+                <li><label><input type="checkbox" value="Pasture raised eggs"> Pasture raised eggs</label></li>
+                <li><label><input type="checkbox" value="Hummus"> Hummus</label></li>
+                <li><label><input type="checkbox" value="Burrata cheese"> Burrata cheese</label></li>
+                <li><label><input type="checkbox" value="Quarter loaf bread"> Quarter loaf bread</label></li>
+                <li><label><input type="checkbox" value="Tomatoes"> Tomatoes</label></li>
+                <li><label><input type="checkbox" value="Cucumbers"> Cucumbers</label></li>
+                <li><label><input type="checkbox" value="Bell peppers"> Bell peppers</label></li>
+                <li><label><input type="checkbox" value="Jasmine white rice"> Jasmine white rice</label></li>
+                <li><label><input type="checkbox" value="Chicken"> Chicken</label></li>
+            </ul>
+        </div>
+
+        <div class="store" id="stop-shop">
+            <h2>Stop and Shop</h2>
+            <ul>
+                <li><label><input type="checkbox" value="Vitamin D whole milk"> Vitamin D whole milk</label></li>
+                <li><label><input type="checkbox" value="Chicken"> Chicken</label></li>
+                <li><label><input type="checkbox" value="olive oil"> Moresh Virgin Olive Oil x4 </label></li>
+            </ul>
+        </div>
+
+        <div class="store" id="whole-foods">
+            <h2>Whole Foods</h2>
+                <ul>
+                    <li><label><input type="checkbox" value="Vitamin D whole milk"> Vitamin D whole milk</label></li>
+                    <li><label><input type="checkbox" value="Chicken"> Chicken</label></li>
+                </ul>
+        </div>
+
+        <div class="store" id="russian-store">
+            <h2>Russian Store</h2>
+            <ul>
+                <li><label><input type="checkbox" value="Berries"> Berries</label></li>
+                <li><label><input type="checkbox" value="Fruits"> Fruits</label></li>
+                <li><label><input type="checkbox" value="Rye bread"> Rye bread</label></li>
+            </ul>
+        </div>
+
+        <button id="generateBtn">Generate Shopping List!</button>
+
+        <div id="output" class="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
