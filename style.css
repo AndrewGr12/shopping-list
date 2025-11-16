@@ -158,7 +158,10 @@ button:hover {
 
 .quantity {
     margin-left: 10px;
-    padding: 2px 5px;
-    border-radius: 4px;
+    padding: 5px;
+    border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 16px; /* Makes it easier to tap on mobile */
+    min-width: 50px;
 }
+

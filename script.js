@@ -1,14 +1,12 @@
-// Function to add quantity selector dynamically
-function handleCheckboxChange(event) {
-    const checkbox = event.target;
+// Handle checkbox change to add/remove quantity selector
+function handleCheckboxChange(checkbox) {
     const li = checkbox.closest("li");
 
     // Remove existing select if any
-    const existingSelect = li.querySelector("select");
-    if (existingSelect) {
-        existingSelect.remove();
-    }
+    let existingSelect = li.querySelector(".quantity");
+    if (existingSelect) existingSelect.remove();
 
+    // If checked, add quantity selector
     if (checkbox.checked) {
         const quantitySelect = document.createElement("select");
         quantitySelect.classList.add("quantity");
@@ -22,16 +20,28 @@ function handleCheckboxChange(event) {
     }
 }
 
-// Attach event listener to all checkboxes, including future ones
-document.querySelectorAll("input[type='checkbox']").forEach(cb => {
-    cb.addEventListener("change", handleCheckboxChange);
+// Attach change listeners to all checkboxes
+function attachCheckboxListeners() {
+    document.querySelectorAll("input[type='checkbox']").forEach(cb => {
+        cb.addEventListener("change", () => handleCheckboxChange(cb));
+    });
+}
+
+// Call initially
+attachCheckboxListeners();
+
+// Use MutationObserver to detect new <li> items dynamically
+const observer = new MutationObserver((mutationsList) => {
+    for (let mutation of mutationsList) {
+        if (mutation.type === "childList") {
+            attachCheckboxListeners();
+        }
+    }
 });
 
-// Event delegation for dynamically added items (optional if you plan to add <li> later via JS)
-document.body.addEventListener("change", function(e) {
-    if (e.target.matches("input[type='checkbox']")) {
-        handleCheckboxChange(e);
-    }
+// Observe all <ul> elements
+document.querySelectorAll(".store ul").forEach(ul => {
+    observer.observe(ul, { childList: true });
 });
 
 // Generate shopping list
@@ -55,7 +65,7 @@ document.getElementById("generateBtn").addEventListener("click", () => {
 
             checkedItems.forEach(item => {
                 const li = document.createElement("li");
-                const quantity = item.closest("li").querySelector("select")?.value || 1;
+                const quantity = item.closest("li").querySelector(".quantity")?.value || 1;
                 li.textContent = `${item.value} - Quantity: ${quantity}`;
                 list.appendChild(li);
             });
