@@ -156,3 +156,9 @@ button:hover {
     margin-left: 20px;
 }
 
+.quantity {
+    margin-left: 10px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
